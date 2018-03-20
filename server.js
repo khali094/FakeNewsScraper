@@ -13,7 +13,7 @@ var request = require("request");
 
 var Note = require("./models/Note");
 var Article = require("./models/Article");
-var databaseUrl = 'mongodb://localhost/nyt';
+var databaseUrl = 'mongodb://localhost/fns';
 
 if (process.env.MONGODB_URI) {
   mongoose.connect(process.env.MONGODB_URI);
@@ -23,7 +23,8 @@ else {
 };
 
 mongoose.Promise = Promise;
-const dbURI = process.env.MONGODB_URI || "mongodb://<dbuser>:<dbpassword>@ds119449.mlab.com:19449/heroku_42q5gmlm";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/fns";
+mongoose.connect(MONGODB_URI);
 var db = mongoose.connection;
 
 db.on("error", function(error) {
