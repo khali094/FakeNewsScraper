@@ -23,6 +23,7 @@ else {
 };
 
 mongoose.Promise = Promise;
+const dbURI = process.env.MONGODB_URI || "mongodb://<dbuser>:<dbpassword>@ds119449.mlab.com:19449/heroku_42q5gmlm";
 var db = mongoose.connection;
 
 db.on("error", function(error) {
